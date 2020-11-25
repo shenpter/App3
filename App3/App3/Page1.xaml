@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App3.Page1">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="手机号"
+                   Margin="60,50,60,0"
+                   HorizontalTextAlignment="Center"/>
+            <Entry Text="{}"
+                   Margin="60,0"/>
+            <Label Text="设置密码"
+                   Margin="60,50,60,0"
+                   HorizontalTextAlignment="Center"/>
+            <Entry Text="{}"
+                   IsPassword="True"
+                   Margin="60,0"/>
+            <Label Text="确认密码"
+                   Margin="60,50,60,0"
+                   HorizontalTextAlignment="Center"/>
+            <Entry Text="{}"
+                   IsPassword="True"
+                   PlaceholderColor="AntiqueWhite"
+                   Margin="60,0"/>
+            <Button Text="注册"
+                    Margin="80,30,80,10"
+                    BorderColor="Firebrick"
+                    Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:App3"
+              xmlns:component="clr-namespace:App3.Component"
+             mc:Ignorable="d"
+             x:Class="App3.shouye">
+    <Grid>
+        <StackLayout Orientation="Horizontal"
+                     HeightRequest="200">
+            <StackLayout Orientation="Vertical">
+                <BoxView HeightRequest="20"/>
+                <Label Text="姓名"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Center"/>
+                <Button Text="个人"
+                        CornerRadius="10"
+                        BorderColor="BurlyWood"
+                        BorderWidth="5"
+                        WidthRequest="60"
+                        HeightRequest="40"
+                        Margin="0,30,0,0"/>
+                <Button Text="团体"
+                        CornerRadius="10"
+                        BorderColor="BurlyWood"
+                        BorderWidth="5"
+                        WidthRequest="60"
+                        HeightRequest="40"/>
+                <Button Text="历史"
+                        CornerRadius="10"
+                        BorderColor="BurlyWood"
+                        BorderWidth="5"
+                        WidthRequest="60"
+                        HeightRequest="40"/>
+                
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Margin="0,0,0,0" BackgroundColor="White">
+                <StackLayout  Orientation="Horizontal">
+                    <Button Text="我的任务"
+                     VerticalOptions="StartAndExpand"
+                     HorizontalOptions="Center"
+                     Margin="10,0,10,0"/>
+                    <Button Text="我的发布"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="Center" Margin="110,0,0,0"/>
+                </StackLayout>
+                <RelativeLayout  HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand">
+                    <component:SplashButton x:Name="menuBtn" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=.8,Property=Height,Constant=0}"/>
+                </RelativeLayout>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App3.MainPage">
+
+    <StackLayout>
+        <Label Text="欢迎使用" 
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"/>
+        <BoxView HeightRequest="100"/>
+        <Label x:Name="label"  Text="登录账号"  HorizontalOptions="Center"/>
+        <Entry Text="{}"/>
+        <Label Text=" 密码" HorizontalOptions="Center"/>
+        <Entry Text="" IsPassword="True"/>
+        <BoxView  HeightRequest="200"/>
+        <Button Text="登录" Clicked="Loginin"/>
+        <Button Text="未拥有账号，请注册" Clicked="Register"/>
+
+    </StackLayout>
+
+</ContentPage>
