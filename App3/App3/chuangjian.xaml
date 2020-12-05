@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App3.chuangjian">
+    <AbsoluteLayout>
+        <Button Text="返回"
+                Clicked="fanhui"
+                AbsoluteLayout.LayoutBounds="0,0,60,40"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Label Text="创建团队/加入团队"
+               FontSize="Large"
+               BackgroundColor="Goldenrod"
+               AbsoluteLayout.LayoutBounds="0.5,0.1,160,30"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Entry Placeholder="创建团队名称"
+               x:Name="create"
+               TextChanged="create_Completed"
+               AbsoluteLayout.LayoutBounds="0.25,0.5,150,50"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Button Text="创建"
+                x:Name="cbutton"
+                Clicked="chuangbutton"
+                AbsoluteLayout.LayoutBounds="0.75,0.5,60,50"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Label Text=" "
+               x:Name="chuang"
+               AbsoluteLayout.LayoutBounds="0.30,0.6,250,50"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Image Source="chuangjian.png"
+               AbsoluteLayout.LayoutBounds="0.5,0.20,120,120"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Entry Placeholder="加入团队名称/号"
+               x:Name="join"
+               TextChanged="join_Completed"
+               AbsoluteLayout.LayoutBounds="0.25,0.75,150,50"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Button Text="加入"
+                Clicked="jiabutton"
+                x:Name="jbutton"
+                AbsoluteLayout.LayoutBounds="0.75,0.75,60,50"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Label Text=" "
+               x:Name="jiaru"
+               AbsoluteLayout.LayoutBounds="0.30,0.85,340,50"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <BoxView x:Name="overlaper" BackgroundColor="Black" Opacity="0.6"
+                 IsVisible="false"
+                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 AbsoluteLayout.LayoutFlags="All"/>
+        <ActivityIndicator x:Name="activity"
+                           IsRunning="False"
+                           Color="white"
+                           AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                           AbsoluteLayout.LayoutFlags="All"/>
+    </AbsoluteLayout>
+</ContentPage>

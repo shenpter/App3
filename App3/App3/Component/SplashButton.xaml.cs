@@ -72,6 +72,7 @@ namespace App3.Component
         {
             isOpen = false;
             MenuBtn.ImageSource = menuImgUrl;
+            MenuBtn.CornerRadius = diameter;
         }
 
         /// <summary>
@@ -82,7 +83,7 @@ namespace App3.Component
         {
             this.BtnList = subButtons;
             this.subButtons = new List<Button>();
-            int distance = GetDisrance(diameter, subButtons.Count);
+            int distance = 0;
             RelativeLayout parentView = this.Parent as RelativeLayout;
             for (int i = 0; i < subButtons.Count; i++)
             {
@@ -91,13 +92,14 @@ namespace App3.Component
                 subBtn.CornerRadius = diameter;
                 subBtn.WidthRequest = diameter;
                 subBtn.HeightRequest = diameter;
+                distance = GetDisrance(diameter,i);
                 subBtn.Clicked += MenuBtn_Clicked;
                 subBtn.Clicked += new EventHandler(item.Action);
                 subBtn.ImageSource = item.ImageUrl;
 
                 var position = GetOffset(distance, i, subButtons.Count);
-                int x = -1* position.Item2;         //当前左下角，右下角需要乘-1
-                int y = -2 * position.Item2;
+                int x = position.Item1;         //当前左下角，右下角需要乘-1
+                int y = -1 * position.Item2;
                 subBtn.Scale = 0;
                 this.subButtons.Add(subBtn);
                 parentView.Children.Add(subBtn, Constraint.RelativeToView(this, (parent, sibling) => {
@@ -114,12 +116,13 @@ namespace App3.Component
         /// <param name="diameter">子按钮直径</param>
         /// <param name="count">子按钮数量</param>
         /// <returns></returns>
-        private int GetDisrance(int diameter, int count)
+        private int GetDisrance(int diameter,int position)
         {
+            /*
             int ret = 0;
             if (count <= 2)
             {
-                ret = (int)(diameter * 1.5);
+                ret = (int)(diameter * 2);
             }
             else
             {
@@ -129,6 +132,10 @@ namespace App3.Component
                 ret = (int)((diameter / (2 * Math.Sin((Math.PI / 180) * partDegree))) * 1.5);
             }
 
+            return ret;
+            */
+            int ret = 0;
+            ret = ((int)((position+1) * diameter * 1.5));
             return ret;
         }
 
@@ -141,6 +148,7 @@ namespace App3.Component
         /// <returns>(x坐标偏移，y坐标偏移)</returns>
         private (int, int) GetOffset(int distance, int position, int count)
         {
+            /*
             double partDegree = 0;
             if (count > 0)
             {
@@ -153,6 +161,10 @@ namespace App3.Component
             //角度转弧度再计算cos
             temp = Math.Cos((Math.PI / 180) * degree);
             int y = (int)(temp * distance);
+            return (x, y);
+            */
+            int x = 0;
+            int y = distance;
             return (x, y);
         }
 

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App3.facontrol">
+    <AbsoluteLayout>
+            <Button Text="返回"
+                Clicked="fanhui"
+                AbsoluteLayout.LayoutBounds="0,0,60,40"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            <Label Text="发布任务"
+               FontSize="Large"
+               BackgroundColor="Goldenrod"
+               AbsoluteLayout.LayoutBounds="0.5,0.1,90,30"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            <Entry Placeholder="团队名称"
+               x:Name="name"
+               TextChanged="name_Completed"
+               AbsoluteLayout.LayoutBounds="0.45,0.5,150,50"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            
+            <Image Source="chuangjian.png"
+               AbsoluteLayout.LayoutBounds="0.5,0.20,120,120"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Entry Placeholder="任务内容"
+               x:Name="content"
+               TextChanged="content_Completed"
+               AbsoluteLayout.LayoutBounds="0.45,0.8,150,50"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <DatePicker 
+                    Format="D"
+                    MaximumDate="12/31/2021"
+                    x:Name="picker"
+                    AbsoluteLayout.LayoutBounds="0.45,0.65,150,50"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    DateSelected="DatePicker_DateSelected"/>
+        <Label Text=" "
+               x:Name="fac"
+               AbsoluteLayout.LayoutBounds="0.30,0.9,340,50"
+               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Button Text="发布"
+                Clicked="Button_Clicked"
+                AbsoluteLayout.LayoutBounds="0.5,1,60,40"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <BoxView x:Name="overlaper" BackgroundColor="Black" Opacity="0.6"
+                 IsVisible="false"
+                 AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 AbsoluteLayout.LayoutFlags="All"/>
+        <ActivityIndicator x:Name="activity"
+                           IsRunning="False"
+                           Color="white"
+                           AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                           AbsoluteLayout.LayoutFlags="All"/>
+    </AbsoluteLayout>
+</ContentPage>

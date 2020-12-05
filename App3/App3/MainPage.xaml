@@ -4,21 +4,36 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App3.MainPage">
-
-    <StackLayout>
-        <Label Text="欢迎使用" 
+             Padding="20"
+             x:Class="App3.MainPage"
+             BackgroundImageSource="tt">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="你好，老朋友" 
                HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand"/>
-        <BoxView HeightRequest="100"/>
-        <Label x:Name="label"  Text="登录账号"  HorizontalOptions="Center"/>
-        <Entry Text="{}"/>
-        <Label Text=" 密码" HorizontalOptions="Center"/>
-        <Entry Text="" IsPassword="True"/>
-        <BoxView  HeightRequest="200"/>
-        <Button Text="登录" Clicked="Loginin"/>
-        <Button Text="未拥有账号，请注册" Clicked="Register"/>
+               VerticalOptions="Start"/>
+            <Image Source="renwu.png"
+                   Margin="60,40"/>
+            
+            <Entry Text="{}"
+               x:Name="phone"
+               Placeholder="手机号"
+               Keyboard="Telephone"
+               Margin="60,10"/>
+            <Entry Text="" IsPassword="True"
+                   Placeholder="密码"
+               x:Name="password"
+               
+               Margin="60,10"/>
+            <BoxView  HeightRequest="200"/>
+            <Button Text="登录" Clicked="Loginin"
+                BorderColor="ForestGreen"
+                Margin="80,10,80,0"/>
+            <Button Text="未拥有账号，请注册" 
+                Margin="80,0,80,0"
+                BorderColor="ForestGreen"
+                Clicked="Register"/>
 
-    </StackLayout>
-
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

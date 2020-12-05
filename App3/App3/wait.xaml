@@ -4,12 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App3.jiaru">
+             x:Class="App3.wait"
+             BackgroundImageSource="tt">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <ActivityIndicator x:Name="activity"
+                               IsRunning="True" Color="White"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                               AbsoluteLayout.LayoutFlags="All"/>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

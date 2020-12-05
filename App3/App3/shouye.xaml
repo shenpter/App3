@@ -5,14 +5,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:App3"
               xmlns:component="clr-namespace:App3.Component"
+              xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
              mc:Ignorable="d"
              x:Class="App3.shouye">
-    <Grid>
+    <ContentPage.Content>
         <StackLayout Orientation="Horizontal"
                      HeightRequest="200">
             <StackLayout Orientation="Vertical">
                 <BoxView HeightRequest="20"/>
-                <Label Text="姓名"
+                <Label Text=""
+                       x:Name="user"
+                       Margin="20,0,0,0"
                        VerticalOptions="Start"
                        HorizontalOptions="Center"/>
                 <Button Text="个人"
@@ -20,36 +23,158 @@
                         BorderColor="BurlyWood"
                         BorderWidth="5"
                         WidthRequest="60"
+                        Clicked="person"
                         HeightRequest="40"
                         Margin="0,30,0,0"/>
                 <Button Text="团体"
                         CornerRadius="10"
                         BorderColor="BurlyWood"
                         BorderWidth="5"
+                        Clicked="group"
                         WidthRequest="60"
                         HeightRequest="40"/>
                 <Button Text="历史"
                         CornerRadius="10"
                         BorderColor="BurlyWood"
                         BorderWidth="5"
+                        Clicked="history"
                         WidthRequest="60"
                         HeightRequest="40"/>
-                
+
             </StackLayout>
-            <StackLayout Orientation="Vertical" Margin="0,0,0,0" BackgroundColor="White">
+            <StackLayout Orientation="Vertical" Margin="0,0,0,0" BackgroundColor="Transparent">
                 <StackLayout  Orientation="Horizontal">
                     <Button Text="我的任务"
-                     VerticalOptions="StartAndExpand"
-                     HorizontalOptions="Center"
-                     Margin="10,0,10,0"/>
+                            x:Name="ren"
+                            VerticalOptions="StartAndExpand"
+                            HorizontalOptions="Center"
+                            BackgroundColor="CornflowerBlue"
+                            WidthRequest="127"
+                            Clicked="renwu"
+                            BorderColor="Gold"
+                            CornerRadius="5"
+                            BorderWidth="2"
+                            HeightRequest="45"/>
                     <Button Text="我的发布"
-                    VerticalOptions="StartAndExpand"
-                    HorizontalOptions="Center" Margin="110,0,0,0"/>
+                            x:Name="fa"
+                            VerticalOptions="StartAndExpand"
+                            HorizontalOptions="Center" 
+                            BackgroundColor="Beige"
+                            WidthRequest="127"
+                            CornerRadius="5"
+                            Clicked="fabu"
+                            HeightRequest="45"/>
                 </StackLayout>
-                <RelativeLayout  HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand">
-                    <component:SplashButton x:Name="menuBtn" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=.8,Property=Height,Constant=0}"/>
+                <StackLayout BackgroundColor="#77ecb9cf">
+                    <StackLayout BackgroundColor="Yellow">
+                        <Label Text="当前任务:"
+                               FontSize="Medium"
+                       HorizontalOptions="Center"
+                           TextColor="LightSeaGreen"/>
+                        <ListView x:Name="list_n"
+                                      HeightRequest="750" 
+                                      HasUnevenRows="True"
+                                      IsPullToRefreshEnabled="True"
+                                      Refreshing="list_n_Refreshing"
+                                      ItemSelected="list_n_ItemSelected"
+                                      ItemsSource="{Binding Actor1}"
+                                  SelectedItem="selected"
+                                      ItemTapped="list_n_ItemTapped">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Padding="10">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label Grid.Column="0"
+                                                    Text="{Binding groupname}"
+                                                    FontAttributes="Bold"
+                                                    HeightRequest="30"
+                                                    WidthRequest="60" />
+                                                <Label Grid.Column="1"
+                                            Text="{Binding content}"
+                                            FontAttributes="Bold" />
+                                                <Label Grid.Row="1"
+                                            Grid.Column="0"
+                                            Text="{Binding data}"
+                                             VerticalOptions="End" />
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+
+                            </ListView>
+                    </StackLayout>
+                    <StackLayout BackgroundColor="Ivory">
+                        <Label Text="过期任务:"
+                               FontSize="Medium"
+                       HorizontalOptions="Center"
+                           TextColor="LightSeaGreen"/>
+                        <ListView x:Name="list_m"
+                                      HeightRequest="750" 
+                                      HasUnevenRows="True"
+                                      IsPullToRefreshEnabled="True"
+                                      ItemSelected="list_m_ItemSelected"
+                                      ItemTapped="list_m_ItemTapped"
+                                      Refreshing="list_m_Refreshing"
+                                      ItemsSource="{Binding Actor2}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Padding="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0"
+                                                    Text="{Binding groupname}"
+                                                    FontAttributes="Bold"
+                                                    HeightRequest="30"
+                                                    WidthRequest="60" />
+                                            <Label Grid.Column="1"
+                                                Text="{Binding content}"
+                                                FontAttributes="Bold" />
+                                            <Label Grid.Row="1"
+                                                Grid.Column="0"
+                                                Text="{Binding data}"
+                                                VerticalOptions="End" />
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Button Text="退出"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        WidthRequest="50"
+                        HeightRequest="40"
+                        FontSize="Micro"
+                        Clicked="exit"
+                    BackgroundColor="Wheat"/>
+                <RelativeLayout >
+                    <component:SplashButton x:Name="menuBtn" 
+                                            HorizontalOptions="End"
+                                            VerticalOptions="End"
+                                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=.8,Property=Height,Constant=0}"/>
                 </RelativeLayout>
             </StackLayout>
+            
+
         </StackLayout>
-    </Grid>
+    </ContentPage.Content>
 </ContentPage>
