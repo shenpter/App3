@@ -4,14 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App3.Person">
+             x:Class="App3.Person"
+             BackgroundImageSource="back">
     <ContentPage.Content>
         <StackLayout Orientation="Horizontal">
-            <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Vertical"
+                         WidthRequest="80">
                 <BoxView HeightRequest="20"/>
                 <Label Text=""
                        x:Name="user"
-                       Margin="20,0,0,0"
+                       Margin="10,0,0,0"
                        VerticalOptions="Start"
                        HorizontalOptions="Center"/>
                 <Button Text="个人"
@@ -37,44 +39,44 @@
                         WidthRequest="60"
                         HeightRequest="40"/>
             </StackLayout>
-            <StackLayout WidthRequest="400">
+            <StackLayout WidthRequest="290">
                 <Button Text="首页"
                         Clicked="shouye"
                         WidthRequest="80"
                         HorizontalOptions="EndAndExpand"
                         VerticalOptions="Start"/>
                 <StackLayout Orientation="Horizontal">
-                    <BoxView WidthRequest="50"/>
+                    <BoxView WidthRequest="40"/>
                     <Label Text="昵称"
                            FontSize="25"
-                           Margin="30,80,0,0"/>
+                           Margin="20,80,0,0"/>
                     <Entry Text="{}"
                            x:Name="name"
                            WidthRequest="100"
                            Margin="0,80,0,0"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <BoxView WidthRequest="50"/>
+                    <BoxView WidthRequest="40"/>
                     <Label Text="密码" 
                            FontSize="25"
-                           Margin="30,80,0,0"/>
+                           Margin="20,80,0,0"/>
                     <Entry Text="{}"
                            x:Name="password"
                            WidthRequest="100"
                            Margin="0,80,0,0"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <BoxView WidthRequest="50"/>
+                    <BoxView WidthRequest="40"/>
                     <Label Text="性别" 
                            FontSize="25"
-                           Margin="30,80,0,0"/>
+                           Margin="20,80,0,0"/>
                     <Entry Text="{}"
                            x:Name="sex"
                            WidthRequest="100"
                            Margin="0,80,0,0"/>
                 </StackLayout>
                 <Button Text="确定"
-                        Margin="80,100,160,0"
+                        Margin="80,100,150,0"
                         Clicked="Button_Clicked"/>
             </StackLayout>
         </StackLayout>

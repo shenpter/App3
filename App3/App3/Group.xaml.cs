@@ -34,7 +34,7 @@ namespace App3
             scsb.InitialCatalog = "CSB";
             scsb.UserID = "accountuser";
             scsb.Password = "ACCOUNT";
-
+            
             //创建连接
             conn = new SqlConnection(scsb.ToString());
             //打开连接
@@ -56,7 +56,7 @@ namespace App3
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
 
-            string sql1 = "SELECT 个人管理团队.团队号,团队名称 FROM 团队,个人管理团队 WHERE 账号='"+phonen+ "' AND 团队.团队号=个人管理团队.团队号 AND 个人管理团队.职位='创建者' ";
+            string sql1 = "SELECT 个人管理团队.团队号,团队名称 FROM 团队,个人管理团队 WHERE 账号='" + phonen + "' AND 团队.团队号=个人管理团队.团队号 AND 个人管理团队.职位='创建者' ";
             SqlCommand com = new SqlCommand(sql1, conn);
             com.CommandType = CommandType.Text;
             SqlDataReader renwu;
@@ -70,10 +70,10 @@ namespace App3
                 {
                     groupname = tt,
                     content = "创建者",
-                    data=tt,
-                    rennum=aa
+                    data = tt,
+                    rennum = aa
 
-                }) ;
+                });
 
             }
             BindingContext = this;
@@ -161,22 +161,22 @@ namespace App3
                 conn.Close();
                 await Navigation.PushAsync(new Group());
             }
-            else if(action== "转让该团队创建人位置")
+            else if (action == "转让该团队创建人位置")
             {
                 if (conn.State == ConnectionState.Closed)
                     conn.Open();
-                string sql1 = "SELECT * FROM 个人管理团队 WHERE 团队号='"+actor.rennum+"' AND 职位='成员'";
+                string sql1 = "SELECT * FROM 个人管理团队 WHERE 团队号='" + actor.rennum + "' AND 职位='成员'";
                 SqlCommand comm1 = new SqlCommand(sql1, conn);
                 comm1.CommandType = CommandType.Text;
                 SqlDataReader sdr;
                 sdr = comm1.ExecuteReader();
-                
+
                 if (sdr.Read())
                 {
                     string result = await DisplayPromptAsync("问题", "将创建人位置转让给？");
                     if (conn.State == ConnectionState.Closed)
                         conn.Open();
-                    string sql2 = "SELECT 个人.账号 FROM 个人,个人管理团队 WHERE 昵称='"+result+"' AND 团队号='"+actor.rennum+ "' AND 个人.账号=个人管理团队.账号 AND 职位='成员'";
+                    string sql2 = "SELECT 个人.账号 FROM 个人,个人管理团队 WHERE 昵称='" + result + "' AND 团队号='" + actor.rennum + "' AND 个人.账号=个人管理团队.账号 AND 职位='成员'";
                     SqlCommand comm2 = new SqlCommand(sql2, conn);
                     comm2.CommandType = CommandType.Text;
                     SqlDataReader sdr1;
@@ -208,7 +208,7 @@ namespace App3
                     conn.Close();
                 }
 
-                
+
             }
         }
 
@@ -220,7 +220,7 @@ namespace App3
             {
                 if (conn.State == ConnectionState.Closed)
                     conn.Open();
-                string sql1 = "DELETE FROM 个人管理团队 WHERE 团队号='" + actor.rennum + "' AND 账号='"+Class1.phonenum.phonenumber+ "';UPDATE 团队 SET 人数 =人数-1 WHERE 团队号='" + actor.rennum + "'";
+                string sql1 = "DELETE FROM 个人管理团队 WHERE 团队号='" + actor.rennum + "' AND 账号='" + Class1.phonenum.phonenumber + "';UPDATE 团队 SET 人数 =人数-1 WHERE 团队号='" + actor.rennum + "'";
                 SqlCommand comm1 = new SqlCommand(sql1, conn);
                 comm1.CommandType = CommandType.Text;
                 comm1.ExecuteNonQuery();

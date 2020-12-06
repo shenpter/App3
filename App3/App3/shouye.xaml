@@ -7,6 +7,7 @@
               xmlns:component="clr-namespace:App3.Component"
               xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
              mc:Ignorable="d"
+             Padding="1"
              x:Class="App3.shouye">
     <ContentPage.Content>
         <StackLayout Orientation="Horizontal"
@@ -42,14 +43,14 @@
                         HeightRequest="40"/>
 
             </StackLayout>
-            <StackLayout Orientation="Vertical" Margin="0,0,0,0" BackgroundColor="Transparent">
+            <StackLayout Orientation="Vertical"  BackgroundColor="Transparent">
                 <StackLayout  Orientation="Horizontal">
                     <Button Text="我的任务"
                             x:Name="ren"
                             VerticalOptions="StartAndExpand"
                             HorizontalOptions="Center"
                             BackgroundColor="CornflowerBlue"
-                            WidthRequest="127"
+                            WidthRequest="110"
                             Clicked="renwu"
                             BorderColor="Gold"
                             CornerRadius="5"
@@ -60,12 +61,12 @@
                             VerticalOptions="StartAndExpand"
                             HorizontalOptions="Center" 
                             BackgroundColor="Beige"
-                            WidthRequest="127"
+                            WidthRequest="110"
                             CornerRadius="5"
                             Clicked="fabu"
                             HeightRequest="45"/>
                 </StackLayout>
-                <StackLayout BackgroundColor="#77ecb9cf">
+                <StackLayout BackgroundColor="Transparent">
                     <StackLayout BackgroundColor="Yellow">
                         <Label Text="当前任务:"
                                FontSize="Medium"
@@ -80,36 +81,36 @@
                                       ItemsSource="{Binding Actor1}"
                                   SelectedItem="selected"
                                       ItemTapped="list_n_ItemTapped">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell>
-                                            <Grid Padding="10">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="Auto" />
-                                                    <RowDefinition Height="*" />
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto" />
-                                                    <ColumnDefinition Width="*" />
-                                                </Grid.ColumnDefinitions>
-                                                <Label Grid.Column="0"
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Padding="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0"
                                                     Text="{Binding groupname}"
                                                     FontAttributes="Bold"
                                                     HeightRequest="30"
                                                     WidthRequest="60" />
-                                                <Label Grid.Column="1"
+                                            <Label Grid.Column="1"
                                             Text="{Binding content}"
                                             FontAttributes="Bold" />
-                                                <Label Grid.Row="1"
+                                            <Label Grid.Row="1"
                                             Grid.Column="0"
                                             Text="{Binding data}"
                                              VerticalOptions="End" />
-                                            </Grid>
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
 
-                            </ListView>
+                        </ListView>
                     </StackLayout>
                     <StackLayout BackgroundColor="Ivory">
                         <Label Text="过期任务:"
@@ -173,7 +174,7 @@
                                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Factor=.8,Property=Height,Constant=0}"/>
                 </RelativeLayout>
             </StackLayout>
-            
+
 
         </StackLayout>
     </ContentPage.Content>

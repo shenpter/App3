@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App3.Group">
+             x:Class="App3.Group"
+             BackgroundImageSource="back">
     <ContentPage.Content>
         <StackLayout Orientation="Horizontal">
             <StackLayout Orientation="Vertical"
@@ -12,7 +13,7 @@
                 <BoxView HeightRequest="20"/>
                 <Label Text=""
                        x:Name="user"
-                       Margin="20,0,0,0"
+                       Margin="10,0,0,0"
                        VerticalOptions="Start"
                        HorizontalOptions="Center"/>
                 <Button Text="个人"
@@ -40,7 +41,7 @@
             </StackLayout>
             <StackLayout >
                 <StackLayout  Orientation="Horizontal">
-                    
+
                     <Label Text="我的团队"
                        FontSize="Large"
                        HorizontalOptions="EndAndExpand"

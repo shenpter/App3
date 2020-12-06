@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App3.History">
+             x:Class="App3.History"
+             BackgroundImageSource="back">
     <StackLayout Orientation="Horizontal"
                      HeightRequest="200">
         <StackLayout Orientation="Vertical"
@@ -12,7 +13,7 @@
             <BoxView HeightRequest="20"/>
             <Label Text=""
                    x:Name="user"
-                   Margin="20,0,0,0"
+                   Margin="10,0,0,0"
                        VerticalOptions="Start"
                        HorizontalOptions="Center"/>
             <Button Text="个人"
@@ -38,7 +39,7 @@
                         WidthRequest="60"
                         HeightRequest="40"/>
         </StackLayout>
-        <StackLayout Orientation="Vertical" Margin="0,0,0,0" BackgroundColor="White">
+        <StackLayout Orientation="Vertical" Margin="0,0,0,0" >
             <StackLayout Orientation="Horizontal">
                 <Label Text="我的历史"
                        FontSize="Large"
@@ -51,7 +52,7 @@
                     VerticalOptions="Start"/>
                 
             </StackLayout>
-            <StackLayout BackgroundColor="Transparent"
+            <StackLayout BackgroundColor="Yellow"
                                 Margin="10,0,10,0">
                 <Label Text="我的发布"
                        TextColor="BlueViolet"

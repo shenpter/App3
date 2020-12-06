@@ -17,7 +17,7 @@ namespace App3.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            
             //设置顶部状态栏背景
 
             //LayoutStable表示布局稳定，不随其他变动而变动,LayoutFullscreen表示把布局拓宽到全屏幕

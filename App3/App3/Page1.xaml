@@ -4,18 +4,18 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             Padding="20"
              x:Class="App3.Page1"
-             BackgroundImageSource="tt">
+             Padding="10"
+             BackgroundImageSource="back">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="你好，新朋友"
-                       Margin="115,0,100,0"
-                   HorizontalOptions="Center"
+                       Margin="130,0,75,0"
                    VerticalOptions="Start"/>
                 <Button Text="返回"
                         TextColor="Red"
+                        HorizontalOptions="EndAndExpand"
                         Clicked="Button_Clicked_1"
                         BackgroundColor="Beige"
                         FontSize="Micro"
