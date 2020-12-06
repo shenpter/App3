@@ -10,3 +10,4 @@ change为修改任务
 chuangjian为加入团队/创建团队
 facontrol为发布任务
 wait仅为过渡，无用
+SplashScreen为点击抽屉式按钮
